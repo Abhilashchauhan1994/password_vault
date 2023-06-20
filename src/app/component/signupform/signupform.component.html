@@ -1,0 +1,89 @@
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+          <div class="my-3 is-size-3 has-text-centered is-uppercase">
+            Password Vault
+          </div>
+          <form [formGroup]="signUpForm" class="box">
+            <div class="field">
+              <label for="" class="label">Username</label>
+              <div class="control has-icons-left">
+                <input
+                  type="text"
+                  placeholder="enter your username"
+                  class="input"
+                  required
+                  formControlName="username"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-user"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="" class="label">Password</label>
+              <div class="control has-icons-left">
+                <input
+                  type="password"
+                  placeholder="*******"
+                  class="input"
+                  required
+                  formControlName="password"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="" class="label">Confirm Password</label>
+              <div class="control has-icons-left">
+                <input
+                  type="password"
+                  placeholder="*******"
+                  class="input"
+                  required
+                  formControlName="confirmedpassword"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field has-text-centered">
+              <button
+                class="button is-success"
+                type="submit"
+                (click)="createAccount()"
+              >
+                Create Account
+              </button>
+            </div>
+            <br />
+            <p class="field has-text-centered">OR</p>
+            <hr class="navbar-divider" />
+            <div class="field has-text-centered">
+              <a href="" routerLink="/login" class="button is-info is-light"
+                >Login</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="level my-3">
+    <div class="level-item has-text-centered">
+      <div class="notification is-success" *ngIf="msgSuccess">
+        <button class="delete" (click)="msgSuccessClose()"></button>
+        {{ msg }}
+      </div>
+      <div class="notification is-danger" *ngIf="msgError">
+        <button class="delete" (click)="msgErrorClose()"></button>
+        {{ msg }}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,82 @@
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+          <div class="my-3 is-size-3 has-text-centered is-uppercase">
+            Password Vault
+          </div>
+          <form [formGroup]="loginForm" class="box">
+            <div class="field">
+              <label for="" class="label">Username</label>
+              <div class="control has-icons-left">
+                <input
+                  type="text"
+                  placeholder="enter your user name"
+                  class="input"
+                  required
+                  formControlName="username"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-user"></i>
+                </span>
+              </div>
+              <p *ngIf="loginForm.controls['username'].invalid">
+                {{
+                  loginForm.controls["username"].hasError("required")
+                    ? "Username is required"
+                    : ""
+                }}
+              </p>
+            </div>
+
+            <div class="field">
+              <label for="" class="label">Password</label>
+              <div class="control has-icons-left">
+                <input
+                  type="password"
+                  placeholder="*******"
+                  class="input"
+                  required
+                  formControlName="password"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+              <p *ngIf="loginForm.controls['password'].invalid">
+                {{
+                  loginForm.controls["password"].hasError("required")
+                    ? "Password is required"
+                    : "Password should be atleast 6 characters"
+                }}
+              </p>
+            </div>
+
+            <div class="field has-text-centered">
+              <button
+                class="button is-success"
+                type="submit"
+                [disabled]="loginForm.invalid"
+                (click)="login()"
+              >
+                Login
+              </button>
+            </div>
+            <br />
+            <p class="field has-text-centered">OR</p>
+            <hr class="navbar-divider" />
+            <div class="field has-text-centered">
+              <a
+                href=""
+                class="button is-info is-light"
+                routerLink="/createAccount"
+                >Create Account</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
